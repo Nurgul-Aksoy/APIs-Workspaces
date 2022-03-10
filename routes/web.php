@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrainController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,6 @@ Route::get('/person',[TrainController::class,'index']);
 Route::get('/edit/{id}',[TrainController::class,'edit'])->name('edit');
 Route::post('/edit/{id}',[TrainController::class,'update'])->name('update');
 Route::delete('/{id}',[TrainController::class,'destroy'])->name('destroy');
+
+//admin login işlemleri
+Route::get('/login',[AdminController::class,'login']);
