@@ -32,3 +32,5 @@ Route::delete('/{id}',[TrainController::class,'destroy'])->name('destroy');
 
 //admin login işlemleri
 Route::get('/login',[AdminController::class,'login']);
+Route::get('/user',[AdminController::class,'user']);
+
