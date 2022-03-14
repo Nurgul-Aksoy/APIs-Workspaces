@@ -20,6 +20,9 @@ class AdminloginMiddleware
       /*  $user=AdminModel::('username','==','admin')->where('password','==',1234)->get();
         if($request->input('username')==$user->username) {
  }*/
+        if (!Auth::check()){
+            return redirect()->route(admin.login);
+        }
 
         return $next($request);
     }

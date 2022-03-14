@@ -40,8 +40,10 @@ Route::get('/control', function () {
 
 //controller'ı route üzerinden tanımlayarak prefix içerisinde yer alan routelar için kolaylık sağlanmıştır.
 
-Route::prefix('admin')->name('admin.')->controller(AdminController::class)->group(function(){ //admin üzerinden diğer sayfalar dönecektir
-    Route::get('login','login')->name('login');
+//login sayfası grubun dışında tanımlanması gerekli
+Route::get('login',[AdminController::class,'login'])->name('admin.login');
+
+Route::prefix('admin')->name('admin.')->middleware('admin')->controller(AdminController::class)->group(function(){ //admin üzerinden diğer sayfalar dönecektir
     Route::get('dashboard','dashboard')->name('dashboard');
     Route::get('logout','logout')->name('logout');
 });
