@@ -8,7 +8,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!--Mix edilmiş css dosyası-->
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="../css/app.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -57,7 +57,7 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="js/app.js"></script>
+    <script src="../js/app.js"></script>
     <script>
         //$.widget.bridge('uibutton', $.ui.button)
         $('#t').DataTable();

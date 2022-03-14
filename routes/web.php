@@ -17,9 +17,9 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::get('/index',function (){return view('admin');});
-Route::get('/admin',function (){return view('master.dashboard');});
+Route::get('/adminlte',function (){return view('master.dashboard');});*/
 
 
 //mongodb form route yapıları
@@ -31,6 +31,18 @@ Route::post('/edit/{id}',[TrainController::class,'update'])->name('update');
 Route::delete('/{id}',[TrainController::class,'destroy'])->name('destroy');
 
 //admin login işlemleri
-Route::get('/login',[AdminController::class,'login']);
-Route::get('/user',[AdminController::class,'user']);
+/*Route::get('/admin',[AdminController::class,'login']);//admin-login sayfası yönlendirme
+Route::post('control',[AdminController::class,'control'])->name('control');
+Route::get('/user',[AdminController::class,'user']);*/
+Route::get('/control', function () {
+    //
+})->middleware('auth')->name('control');
+
+//controller'ı route üzerinden tanımlayarak prefix içerisinde yer alan routelar için kolaylık sağlanmıştır.
+
+Route::prefix('admin')->name('admin.')->controller(AdminController::class)->group(function(){ //admin üzerinden diğer sayfalar dönecektir
+    Route::get('login','login')->name('login');
+    Route::get('dashboard','dashboard')->name('dashboard');
+    Route::get('logout','logout')->name('logout');
+});
 

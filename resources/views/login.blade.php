@@ -24,9 +24,9 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Giriş</p>
 
-            <form action="../../index3.html" method="post">
+            <form action="{{route ('control')}}" method="post">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Kullanıcı Adı">
+                    <input type="text" class="form-control username" placeholder="Kullanıcı Adı">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-solid fa-user"</span>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Şifre">
+                    <input type="password" class="form-control password" placeholder="Şifre">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
