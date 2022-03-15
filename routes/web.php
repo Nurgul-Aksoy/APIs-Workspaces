@@ -34,14 +34,15 @@ Route::delete('/{id}',[TrainController::class,'destroy'])->name('destroy');
 /*Route::get('/admin',[AdminController::class,'login']);//admin-login sayfası yönlendirme
 Route::post('control',[AdminController::class,'control'])->name('control');
 Route::get('/user',[AdminController::class,'user']);*/
-Route::get('/control', function () {
+/*Route::get('/control', function () {
     //
-})->middleware('auth')->name('control');
+})->middleware('auth')->name('control');*/
 
 //controller'ı route üzerinden tanımlayarak prefix içerisinde yer alan routelar için kolaylık sağlanmıştır.
-
 //login sayfası grubun dışında tanımlanması gerekli
-Route::get('login',[AdminController::class,'login'])->name('admin.login');
+
+Route::get('/login',[AdminController::class,'login'])->name('admin.login');
+Route::post('/login',[AdminController::class,'adminpost'])->name('admin.post');
 
 Route::prefix('admin')->name('admin.')->middleware('admin')->controller(AdminController::class)->group(function(){ //admin üzerinden diğer sayfalar dönecektir
     Route::get('dashboard','dashboard')->name('dashboard');

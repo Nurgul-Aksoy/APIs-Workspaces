@@ -24,7 +24,8 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Giriş</p>
 
-            <form action="{{route ('control')}}" method="post">
+            <form action="{{route ('admin.post')}}" method="post">
+                @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control username" placeholder="Kullanıcı Adı">
                     <div class="input-group-append">
