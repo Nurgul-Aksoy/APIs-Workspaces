@@ -42,6 +42,11 @@
                 </li>
             </ul>
         </nav>
+        <ul class="list-group">
+            <li class="nav-item">
+                <a href="{{route('admin.logout')}}" class="nav-link active btn btn-primary">Logout</a>
+            </li>
+        </ul>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

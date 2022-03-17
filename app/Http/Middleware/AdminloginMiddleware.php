@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use App\Models\AdminModel;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; //Authentication tanımlanması
 
 class AdminloginMiddleware
 {
@@ -18,10 +17,9 @@ class AdminloginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-
-        if (!Auth::check()){ //kullanıcı girişi yapılmadıysa login sayfasına yönlendirme
-            return redirect()->route('admin.login');
-        }
+      /*  $user=AdminModel::('username','==','admin')->where('password','==',1234)->get();
+        if($request->input('username')==$user->username) {
+ }*/
 
         return $next($request);
     }
