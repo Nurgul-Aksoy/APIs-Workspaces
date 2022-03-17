@@ -22,7 +22,6 @@ class AdminController extends Controller
     }
     public function adminpost(Request $request)
     {
-     // dd($request->post());
         $user = $request->validate([
             'username' => ['required', 'username'],
             'password' => ['required'],
