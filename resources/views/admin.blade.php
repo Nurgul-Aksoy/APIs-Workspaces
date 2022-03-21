@@ -12,6 +12,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -62,5 +63,6 @@
         //$.widget.bridge('uibutton', $.ui.button)
         $('#t').DataTable();
     </script>
+
 </body>
 </html>

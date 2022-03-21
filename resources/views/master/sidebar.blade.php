@@ -33,7 +33,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin" class="nav-link active">
+                            <a href="{{ route("admin.dashboard") }}" class="nav-link active">
                                 <i class="fa fa-circle nav-icon"></i>
                                 <p>Dashboard v1</p>
                             </a>
@@ -42,6 +42,65 @@
                 </li>
             </ul>
         </nav>
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tree"></i>
+                <p>
+                    UI Elements
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="../UI/general.html" class="nav-link active">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>General</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../UI/icons.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../UI/buttons.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Buttons</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../UI/sliders.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Sliders</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../UI/modals.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Modals & Alerts</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../UI/navbar.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Navbar & Tabs</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../UI/timeline.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Timeline</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../UI/ribbons.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Ribbons</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <ul class="list-group">
             <li class="nav-item">
                 <a href="{{route('admin.logout')}}" class="nav-link active btn btn-primary">Logout</a>
@@ -50,4 +109,18 @@
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-</aside>
+</aside><!--
+<style>
+   .form-select{
+      margin-bottom:1.8px;
+        background-color: hsla(0,0%,100%,.9)!important;
+        color: #343a40 !important;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        width: calc(250px - 1rem);
+    }
+   .btn-secondary{
+        background-color: hsla(0,0%,100%,.9);
+       color: #343a40; width: 235px; margin-left:-40px;
+   }
+</style>-->
