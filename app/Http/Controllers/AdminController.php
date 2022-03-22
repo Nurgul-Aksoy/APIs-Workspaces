@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function user()
     {
         $user=new User();
-        $user->email='a@b.com';
+        $user->name='admin';
         $user->password= Hash::make('1234');//laravel'de şifrenin hashlenmesi
         $user->save();
     }
@@ -46,6 +46,9 @@ class AdminController extends Controller
         return redirect()->route('admin.login');
     }
     //Login Authentication işlemlerin de password'un hashlenmesi gerekiyor.Hashlenen password veritabanında hasslenmiş olarak tutulduğu için bu iişlem authentication'da gerekli.
+    public function katekle()
+    {
 
+    }
 
 }

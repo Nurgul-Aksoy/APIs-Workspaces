@@ -40,67 +40,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <p>
+                            Kategori
+                            <i class="fa fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="../UI/general.html" class="nav-link active">
+                                <i class="fa fa-solid fa-list-ul nav-icon"></i>
+                                <p>Kategori Ekle</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../UI/icons.html" class="nav-link">
+                                <i class="fa fa-solid fa-list-ul nav-icon"></i>
+                                <p>  Kategori Listele</p>
+                            </a>
+                        </li>
             </ul>
         </nav>
-        <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tree"></i>
-                <p>
-                    UI Elements
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="../UI/general.html" class="nav-link active">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>General</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../UI/icons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../UI/buttons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Buttons</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../UI/sliders.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Sliders</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../UI/modals.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Modals & Alerts</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../UI/navbar.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Navbar & Tabs</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../UI/timeline.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Timeline</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../UI/ribbons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ribbons</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
+
         <ul class="list-group">
             <li class="nav-item">
                 <a href="{{route('admin.logout')}}" class="nav-link active btn btn-primary">Logout</a>

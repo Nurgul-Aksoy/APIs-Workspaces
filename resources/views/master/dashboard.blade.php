@@ -1,5 +1,5 @@
 @extends('admin')
-@section('dashboard')
+@section('content')
  <h1>Dashboard. deneme</h1>
 @endsection
 

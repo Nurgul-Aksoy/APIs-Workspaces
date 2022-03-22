@@ -36,7 +36,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                        <!--Yield section-->
-                        @yield('dashboard')
+                        @yield('content')
 
 
                     </div><!-- /.col -->
