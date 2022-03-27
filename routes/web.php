@@ -17,10 +17,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('logout',[AdminController::class, 'logout'])->name('logout');
     });
 });
-
-Route::get('admin/dashboard',[AdminController::class,'katekle'])->name('katekle');
-
-//
+Route::get('admin/kategoriekle',[AdminController::class,'katekle'])->name('katekle');
+Route::get('admin/kategoriliste',[AdminController::class,'katliste'])->name('katliste');
+Route::post('admin/kategoristore',[AdminController::class,'store'])->name('store');
+Route::get('admin/showcategories',[AdminController::class,'show'])->name('show');
+Route::post('admin/update/{id}',[AdminController::class,'update'])->name('update');
+Route::get('admin/update/{id}',[AdminController::class,'edit'])->name('edit');
+Route::delete('{id}',[AdminController::class,'destroy'])->name('destroy');
 //Route::prefix('admin')->name('admin.')->controller(AdminController::class)->middleware('auth')->group(function () {
 ////    dd("auth");
 //
