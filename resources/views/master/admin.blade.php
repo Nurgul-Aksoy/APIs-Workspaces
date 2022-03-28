@@ -45,7 +45,7 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
+            @include('sweetalert::alert')
 
         </div>
         <!-- /.content-wrapper -->
@@ -64,6 +64,33 @@
         //$.widget.bridge('uibutton', $.ui.button)
         $('#t').DataTable();
     </script>
+    <!--SweetAlert Delete-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            var self=$(this);
+            const btn=$(this).attr('button')
+            swal({
+                title: `Kategoriyi silmek istediğinize emin misiniz?`,
+                text: "Eğer kaydı silerseniz, bu işlemi geri alamazsınız.",
+                icon: "warning",
+                buttons: true,
+                buttons: ["İptal", "Onayla"],
+                dangerMode: true,
+            }).then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+
+    </script>
+
+
     <!-- jQuery -->
     <script src="../plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -76,12 +103,9 @@
     <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../dist/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../dist/js/pages/dashboard.js"></script>
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+
 
 
 

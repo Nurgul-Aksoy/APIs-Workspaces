@@ -29,12 +29,12 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                <i class="fa fa-solid fa-maximize"></i>
+                <i class="fa fa-arrows-alt "></i>
             </a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-                <i class="fa fa-th-large"></i>
+                <i class="fa fa-user"></i>
 
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">

@@ -46,6 +46,7 @@
                  <!-- /.card -->
              </div>
          </div>
+     @include('sweetalert::alert')
          <!-- /.row -->
      </div><!-- /.container-fluid -->
  </section>

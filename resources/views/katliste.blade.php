@@ -45,7 +45,7 @@
                                 <td><form action="{{route('destroy',$cat->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn" type="submit">Sil</button>
+                                        <button class="btn  show_confirm" type="submit" >Sil</button>
                                     </form></td>
                         </tr>
                         @endforeach

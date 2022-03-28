@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -62,7 +63,10 @@ class AdminController extends Controller
         $cat->order = $request->get('order');
         $cat->description = $request->get('description');
         $cat->save();
-        return redirect()->route('katekle')->with('success', 'Kategori başarı ile eklendi.');
+        Alert::toast('Kategori başarılı şekilde eklendi', 'success');
+        //Alert::success('Kategori başarılı şekilde eklendi.');
+        return redirect()->route('katekle');
+
     }
     public function show()
     {
@@ -76,7 +80,9 @@ class AdminController extends Controller
         $cat->order = $request->get('order');
         $cat->description = $request->get('description');
         $cat->save();
-        return redirect('admin/kategoriliste')->with('success', 'Kategori başarı ile güncellendi.');
+        Alert::toast('Kategori başarılı şekilde güncellendi', 'success');
+       // Alert::success('Kategori başarılı şekilde güncellendi.');
+        return redirect('admin/kategoriliste');
     }
     public function edit($id)
     {
@@ -87,6 +93,8 @@ class AdminController extends Controller
     {
         $cat= Category::find($id);
         $cat->delete();
-        return redirect('admin/showcategories')->with('success','Başarılı şekilde silindi.');
+        Alert::toast('Kategori başarılı şekilde silindi', 'success');
+        //Alert::success('Kategori başarılı şekilde silindi.');
+        return redirect('admin/showcategories');
     }
 }
