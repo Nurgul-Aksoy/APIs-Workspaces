@@ -82,7 +82,7 @@ class AdminController extends Controller
         $cat->save();
         Alert::toast('Kategori başarılı şekilde güncellendi', 'success');
        // Alert::success('Kategori başarılı şekilde güncellendi.');
-        return redirect('admin/kategoriliste');
+        return redirect()->route('show');
     }
     public function edit($id)
     {
@@ -97,4 +97,14 @@ class AdminController extends Controller
         //Alert::success('Kategori başarılı şekilde silindi.');
         return redirect('admin/showcategories');
     }
+    //Endpoint
+    public function endpointstore()
+    {
+       return view('endpointstore');
+    }
+    public function endpointlist()
+    {
+        return view('endpointlist');
+    }
+
 }

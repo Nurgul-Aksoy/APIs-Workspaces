@@ -52,7 +52,32 @@
                                 <p>  Kategori Listele</p>
                             </a>
                         </li>
-            </ul>
+                     </ul>
+                    <!-- /.endpoint-menu -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-solid fa-folder nav-icon"></i>
+                            <p>
+                                Endpoint
+                                <i class="fa fa-angle-left right"></i>
+
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('endpointstore') }}" class="nav-link">
+                                    <i class="fa fa-solid fa-list-ul nav-icon"></i>
+                                    <p>Endpoint Ekle</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('endpointlist') }}" class="nav-link">
+                                    <i class="fa fa-solid fa-list-ul nav-icon"></i>
+                                    <p>Endpoint Listele</p>
+                                </a>
+                            </li>
+                        </ul>
+
         </nav>
         <!-- /.sidebar-menu -->
     </div>

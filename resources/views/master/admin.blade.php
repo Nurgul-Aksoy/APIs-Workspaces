@@ -8,13 +8,9 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!--Mix edilmiş css dosyası-->
-    <link rel="stylesheet" href="../css/app.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-<body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
-
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/css/app.css">
+    <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
         <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -57,7 +53,7 @@
     <!-- ./wrapper -->
     <script src="public/build.js"></script>
     <!-- jQuery -->
-    <script src="../js/app.js"></script>
+    <script src="{{ env('APP_URL') }}/js/app.js"></script>
     <script>
         //$.widget.bridge('uibutton', $.ui.button)
         $('#t').DataTable();
@@ -66,16 +62,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script type="text/javascript">
         $('.show_confirm').click(function(event) {
-            var form = $(this).closest("form");
-            var name = $(this).data("name");
             event.preventDefault();
-            var self=$(this);
-            const btn=$(this).attr('button')
+            var form = $(this).closest("form");
             swal({
                 title: `Kategoriyi silmek istediğinize emin misiniz?`,
                 text: "Eğer kaydı silerseniz, bu işlemi geri alamazsınız.",
                 icon: "warning",
-                buttons: true,
                 buttons: ["İptal", "Onayla"],
                 dangerMode: true,
             }).then((willDelete) => {

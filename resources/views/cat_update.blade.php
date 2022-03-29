@@ -30,7 +30,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputFile">Açıklama</label>
                                     <div class="input-group">
-                                        <textarea  name="description" cols="64" rows="2" style="border: 1px solid #ced4da; border-radius: 5px; " value="{{$cat->description}}"></textarea>
+                                        <textarea  name="description" cols="64" rows="2" style="border: 1px solid #ced4da; border-radius: 5px; " >{{$cat->description}}</textarea>
                                     </div>
                                 </div>
 
