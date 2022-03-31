@@ -77,6 +77,42 @@
                 });
         });
     </script>
+        <!--Dinamik olarak tabloya yeni satır ekleme-->
+      <!--  <script>
+            $(document).ready(function (){
+              $("#add-row").click(function (){
+                    $(".table tbody tr").last().after(
+                        '<tr>'+
+                            '<td><input type="text" id="key" style="width: 100px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                            '<td><input type="text"  id="value" style="width: 100px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                            '<td><textarea name="" id="description" cols="22" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
+                            '<td><button type="button" class="btn btn-block btn-default btn-xs active" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>'+
+                        '</tr>'
+                    );
+                })
+            })
+        </script>-->
+        <script type="text/javascript">
+            $(document).ready(function (){
+                var i=1;
+                $("#add-row").click(function (){
+                    i++;
+                    $(".table tbody").append(
+                        '<tr id="row'+ i +'">'+
+                        '<td><input type="text" id="key" style="width: 100px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                        '<td><input type="text"  id="value" style="width: 100px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                        '<td><textarea name="" id="description" cols="22" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
+                        '<td><button type="button" id="'+ i +'" class="btn btn-block btn-default btn-xs active remove_row" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>'+
+                        '</tr>'
+                    );
+                });
+                $(document).on('click','.remove_row',function (){
+                    var row_id=$(this).attr("id");
+                    $('#row'+row_id+'').remove();
+                });
+
+            });
+        </script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button);

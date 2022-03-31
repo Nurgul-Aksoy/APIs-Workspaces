@@ -30,11 +30,8 @@ Route::delete('{id}',[AdminController::class,'destroy'])->name('destroy');
 Route::get('admin/endpointstore',[AdminController::class,'endpointstore'])->name('endpointstore');
 Route::get('admin/endpointlist',[AdminController::class,'endpointlist'])->name('endpointlist');
 
+//Header-param vs
+//Route::get('admin/endpointstore/param',[AdminController::class,'endpointstore'])->name('param');
 
-//Route::prefix('admin')->name('admin.')->controller(AdminController::class)->middleware('auth')->group(function () {
-////    dd("auth");
-//
-
-//});
 
 

@@ -106,5 +106,9 @@ class AdminController extends Controller
     {
         return view('endpointlist');
     }
+    /*public function param()
+    {
+        return view('param');
+    }*/
 
 }
