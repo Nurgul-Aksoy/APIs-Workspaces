@@ -58,4 +58,24 @@
         </div>
     </div>
     <!-- /.row -->
+    <script src="{{ env('APP_URL') }}/js/app.js"></script>
+    <!--SweetAlert Delete-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+            event.preventDefault();
+            var form = $(this).closest("form");
+            swal({
+                title: `Kategoriyi silmek istediğinize emin misiniz?`,
+                text: "Eğer kaydı silerseniz, bu işlemi geri alamazsınız.",
+                icon: "warning",
+                buttons: ["İptal", "Onayla"],
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 @endsection

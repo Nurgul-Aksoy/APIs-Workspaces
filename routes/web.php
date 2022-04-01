@@ -31,7 +31,7 @@ Route::get('admin/endpointstore',[AdminController::class,'endpointstore'])->name
 Route::get('admin/endpointlist',[AdminController::class,'endpointlist'])->name('endpointlist');
 
 //Header-param vs
-//Route::get('admin/endpointstore/param',[AdminController::class,'endpointstore'])->name('param');
+Route::get('admin/endpointstore/param',[AdminController::class,'endpointstore'])->name('param');
 
 
 

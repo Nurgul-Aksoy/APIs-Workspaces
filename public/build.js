@@ -28485,11 +28485,11 @@ return jQuery;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	__webpack_require__("./public/plugins/jquery/jquery.min.js");
+/******/ 	__webpack_require__("./public/plugins/jquery-ui/jquery-ui.min.js");
 /******/ 	__webpack_require__("./public/dist/js/adminlte.js");
 /******/ 	__webpack_require__("./public/dist/js/pages/dashboard.js");
-/******/ 	__webpack_require__("./public/plugins/bootstrap/js/bootstrap.bundle.min.js");
-/******/ 	__webpack_require__("./public/plugins/jquery-ui/jquery-ui.min.js");
-/******/ 	var __webpack_exports__ = __webpack_require__("./public/plugins/jquery/jquery.min.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./public/plugins/bootstrap/js/bootstrap.bundle.min.js");
 /******/ 	
 /******/ })()
 ;
