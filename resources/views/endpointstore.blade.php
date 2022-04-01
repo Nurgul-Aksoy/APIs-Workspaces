@@ -1,6 +1,10 @@
 @extends('master.admin')
 @section('content')
+
     <h4><i class="fa fa-solid fa-list-ul nav-icon"> Endpoint Ekle</i></h4><br>
+    <div style="float: right; margin-top:-55px; margin-right:13px;">
+        <button type="submit" class="btn btn-primary btn-sm">Save</button>
+    </div>
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -45,9 +49,6 @@
 
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
                         </form>
                     </div>
                     <!-- /.card -->
@@ -140,7 +141,8 @@
         <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
-    <script src="{{ env('APP_URL') }}/js/app.js"></script>
+
+@section('script')
     <script type="text/javascript">
         $(document).ready(function (){
             var i=1;
@@ -162,7 +164,6 @@
 
         });
     </script>
-
     <script type="text/javascript">
         $(document).ready(function (){
             var i=1;
@@ -184,5 +185,6 @@
 
         });
     </script>
+@endsection
     <!-- /.content -->
 @endsection

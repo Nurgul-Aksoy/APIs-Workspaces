@@ -52,11 +52,11 @@
     </div>
     <!-- jQuery -->
     <script src="{{ env('APP_URL') }}/js/app.js"></script>
+        @yield('script')
     <script>
         //$.widget.bridge('uibutton', $.ui.button)
         //$('#t').DataTable();
     </script>
-
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button);
