@@ -87,9 +87,9 @@
                                             <tbody>
                                             <tr>
                                                 <td style="width:5px;">0.</td>
-                                                <td><input type="text" id="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                                <td><input type="text" id="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                                <td><textarea name="" id="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
+                                                <td><input type="text" name="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
+                                                <td><input type="text" name="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
+                                                <td><textarea name="" name="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
                                                 <td><button type="button" id="remove-row" class="btn btn-block btn-default btn-xs disabled" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
                                             </tr>
 
@@ -117,9 +117,9 @@
                                             <tbody>
                                             <tr>
                                                 <td style="width:5px;">0.</td>
-                                                <td><input type="text" id="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                                <td><input type="text" id="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                                <td><textarea name="" id="description" cols="19" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
+                                                <td><input type="text" name="key_param"  style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
+                                                <td><input type="text" name="value_param"  style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
+                                                <td><textarea name="" name="description_param" cols="19" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
                                                 <td><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_param" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
                                             </tr>
                                             </tbody>
@@ -152,32 +152,25 @@
                                         <thead>
                                         <tr><th style="width:10px;">Name</th>
                                             <th style="width:10px;">Key</th>
-                                            <th style="width:20px;">Value</th>
-                                            <th style="width:30px;">Type</th>
                                             <th style="width:50px;">Description</th>
+                                            <th style="width:20px;">Type Section</th>
                                             <th style="width:4px;"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr><td><input type="text" id="name" style="width: 150px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                            <td><input type="text" id="key" style="width: 150px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                            <td><input type="text" id="value" style="width: 150px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                             <td><select name="endpoint" id="type" style="width: 150px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125); padding:1px 2px;">
-                                                     <option value=""></option>
-                                                     <option value="">GET</option>
-                                                     <option value="">POST</option>
-                                                     <option value="">PUT</option>
-                                                     <option value="">PATCH</option>
-                                                     <option value="">DELETE</option>
-                                                 </select></td>
-                                            <td><textarea name="" id="description" cols="28" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
-                                            <td><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_field" style="width: 25px; margin:5px 5px 5px 20px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                                        <tr>
+                                            <td id="name" style="width:25%;"></td>
+                                            <td style="width:20%;"></td>
+                                            <td style="width:30%;"></td>
+                                            <td style="width:25%;"></td>
+                                            <td style="width: 15%"><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_field" style="width: 25px; margin:5px 5px 5px 20px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </table>
                         </div>
+
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
@@ -204,18 +197,19 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name:</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" id="modalname">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Key:</label>
-                                <input type="text" class="form-control" name="key">
+                                <input type="text" class="form-control" id="modalkey">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Description:</label>
                                 <div class="input-group">
-                                    <textarea  name="description" cols="64" rows="2" style="border: 1px solid #ced4da; border-radius: 5px; "></textarea>
+                                    <textarea id="modaldesc" cols="64" rows="2" style="border: 1px solid #ced4da; border-radius: 5px; "></textarea>
                                 </div>
                             </div>
+                            <button type="button" id="next" class="btn btn-primary" style="float:right;">Next</button>
                         </div>
                         <!-- /.card-body -->
                     </form>
@@ -234,7 +228,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" id="next" class="btn btn-primary">Next</button>
+                    <button type="button" id="savemodal" class="btn btn-primary" onclick="getValueInput()">Save</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -252,9 +246,9 @@
                 $(".header").append(
                     '<tr id="row'+ i +'" class="row_number">'+
                     '<td  style="width:5px;"></td>'+
-                    '<td><input type="text" id="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
-                    '<td><input type="text"  id="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
-                    '<td><textarea name="" id="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
+                    '<td><input type="text" name="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                    '<td><input type="text"  name="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                    '<td><textarea name="" name="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
                     '<td><button type="button" id="'+ i +'" class="btn btn-block btn-default btn-xs active remove_row" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>'+
                     '</tr>'
                 );
@@ -282,9 +276,9 @@
                 $(".param").append(
                     '<tr id="row'+ i +'" class="row_param">'+
                     '<td style="width:5px;"></td>'+
-                    '<td><input type="text" id="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
-                    '<td><input type="text"  id="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
-                    '<td><textarea name="" id="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
+                    '<td><input type="text" name="key_param" " style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                    '<td><input type="text"  name="value_param"  style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                    '<td><textarea  name="description_param"  cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
                     '<td><button type="button" id="'+ i +'" class="btn btn-block btn-default btn-xs active remove_row" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>'+
                     '</tr>'
                 );
@@ -309,12 +303,16 @@
             $("#add-row-field").click(function(){
                 $("#field").modal('show');
                 $("#modaltwo").hide();
+                 $(".modal-footer").hide(); //save id'li buton izlendi
+
             });
             $("#next").click(function (){
                 $("#field").modal('show');
                 $("#modalone").hide();
                 $("#modaltwo").show();
                 $('#modaltwo').val('null');//tur seciminde option null degerinin sabit kalmasını sağlar
+                $(".modal-footer").show();
+
             });
         });
     </script>
@@ -326,23 +324,23 @@
                 if (name == "oneinput") {
                     $(".contents").html("<br>" +
                         "<label for='default' style='margin-right:15px;' >Default</label>"+
-                        "<input type='text' name='default'  style='width: 351px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125); padding:1px 2px;'>" +
+                        "<input type='text' name='inputdefault' id='inputdefault' style='width: 351px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125); padding:1px 2px;'>" +
                         "<label for='placeholder' style='margin-right:15px;' >Placeholder</label>"+
-                        "<input type='text' name='placeholder'  style='width: 319px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125); padding:1px 2px;'>");
+                        "<input type='text' name='inputplaceholder' id='inputplace'  style='width: 319px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125); padding:1px 2px;'>");
                 }
                 else if(name=="null"){
                 $(".contents").html("");
                 }
                 else if(name=="twotextarea"){
                     $(".contents").html("<br>" +
-                        "<textarea  name='description' cols='46' rows='2' style='border: 1px solid #ced4da; border-radius: 5px;'></textarea>" +
+                        "<textarea  name='textdesc' id='textdesc' cols='46' rows='2' style='border: 1px solid #ced4da; border-radius: 5px;'></textarea>" +
                         "<label for='default' style='float:left; margin-right:15px;' >Default</label>"+
                         "<label for='placeholder' style='margin-right:15px;' >Placeholder</label>"+
-                         "<input type='text' name='placeholder'  style='width: 319px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125); padding:1px 2px;'>");
+                         "<input type='text' name='textplaceholder'  id='textplace' style='width: 319px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125); padding:1px 2px;'>");
                 }
                 else if(name=="threeselect"){
                     $(".contents").html("<div class='card-body' style='padding:0px;'>" +
-                        " <table class='table table-bordered modalselect'>" +
+                        " <table class='table table-bordered modalselect' id='type_select'>" +
                         " <thead> <button type='button' id='add-row-select' class='btn btn-block btn-default btn-xs' style='width: 25px; margin: 6px; float:right;  margin-right:24px;'><i class='fa fa-plus' aria-hidden='true'></i></button>" +
                         " <tr><th style='width:5px;'>#</th>" +
                         " <th style='width:10px;'>Key</th>" +
@@ -351,19 +349,19 @@
                         " </thead> " +
                         "<tbody><tr>" +
                         "<td style='width:5px;'>0.</td>" +
-                        "<td><input type='text' id='key' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> " +
-                        "<td><input type='text' id='value' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> "+
+                        "<td><input type='text' name='selectkey' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> " +
+                        "<td><input type='text' name='selectvalue' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> "+
                         "<td><button type='button' class='btn btn-block btn-default btn-xs active remove_row' style='width: 25px; margin: 5px; margin-left:15px;'><i class='fa fa-times' aria-hidden='true'></i></button></td></tr> </tbody> </table> </div> </div><br>" +
                         "<label for='default' style='margin-right:15px;'>Default</label>"+
-                        "<input type='number' min='0' max='100' style='width: 375px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'>");
+                        "<input type='number'name=selectdefault id='selectdefault' min='0' max='100' style='width: 375px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'>");
                 }
                 else if(name=="fourcheckbox"){
                     $(".contents").html("<br> " +
                         "<label for='default' style='float:left; margin-right:35px;'>Default</label>"+
                         "<div class='form-check'>" +
-                        "<input class='form-check-input' type='checkbox' value='default' id='flexCheckChecked' checked><label class='form-check-label' for='flexCheckChecked'><input type='text' placeholder='Onayla'  style='width: 330px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'> </label> </div><br>"+
+                        "<input class='form-check-input' type='checkbox' name='checkdefault' value='default'  checked><label class='form-check-label' for='flexCheckChecked'><input type='text' placeholder='Onayla' id='flexCheckChecked' style='width: 330px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'> </label> </div><br>"+
                         "<div class='form-check' style='margin-left:66px;'>" +
-                        "<input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'> <label class='form-check-label' for='flexCheckDefault'><input type='text' placeholder='Onaylama'  style='width: 330px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></label></div>");
+                        "<input class='form-check-input' type='checkbox'  name='checkreject' value='reject' > <label class='form-check-label' for='flexCheckDefault'><input type='text' placeholder='Onaylama' id='flexCheckDefault' style='width: 330px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></label></div>");
                 }
                 else{
                     $(".contents").html("<div class='card-body' style='padding:0px;'>" +
@@ -376,11 +374,11 @@
                         " </thead> " +
                         "<tbody><tr>" +
                         "<td style='width:5px;'>0.</td>" +
-                        "<td><input type='text' id='key' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> " +
-                        "<td><input type='text' id='value' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> "+
+                        "<td><input type='text' name='radiokey' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> " +
+                        "<td><input type='text' name='radiovalue' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> "+
                         "<td><button type='button' class='btn btn-block btn-default btn-xs active remove_row' style='width: 25px; margin: 5px; margin-left:15px;'><i class='fa fa-times' aria-hidden='true'></i></button></td></tr> </tbody> </table> </div> </div><br>" +
                         "<label for='default' style='margin-right:15px;'>Default</label>"+
-                        "<input type='number' min='0' max='100' style='width: 375px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'>");
+                        "<input type='number' name='radiodefault' min='0' max='100' style='width: 375px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'>");
                 }
                 //modal selectbox select option
                 var i=1;
@@ -390,8 +388,8 @@
                     $(".modalselect").append(
                         '<tr id="row'+ i +'" class="row_select_modal">'+
                         '<td style="width:5px;"></td>'+
-                        '<td><input type="text" id="key" style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
-                        '<td><input type="text"  id="value" style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                        '<td><input type="text" name="selectkey" style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                        '<td><input type="text" name="selectvalue"  style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
                         '<td><button type="button" id="'+ i +'" class="btn btn-block btn-default btn-xs active remove_row_select" style="width: 25px; margin: 5px; margin-left:15px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>'+
                         '</tr>'
                     );
@@ -442,11 +440,84 @@
         $("#field").on("hidden.bs.modal", function(){
             $('.modal-body #modalone').show();
             $('#modaltwo').hide();
+            $(".modal-footer").hide();
             $('.contents').hide();
         });
-       $("#field").change(function (){
+       $("#field").change(function (){//sayfa yenilenmeden turler kisminda icerigin gösterildigi alan
             $('.contents').show();
        });
+    </script>
+    <!--each dongu-->
+    <script>
+    $("li").each(function (index){
+        console.log(index+":"+$(this).text());
+    });
+    </script>
+    <script>
+    //modaldan gelen degerleri alıp array icerisine ekleme
+    function getValueInput() {
+
+        //js obje deneme
+        const all = {
+            key:document.getElementById("modalkey").value,
+            name:document.getElementById("modalname").value,
+            description:document.getElementById("modaldesc").value,
+            component:{
+                type:""
+            }
+        };
+        var types= document.getElementById('modaltwo').value; //bu kısım tür seçiminden gelen değer hangisi ise ona göre yapılacak
+        switch(types) {
+            case "oneinput":
+                all.component.type = 'input';
+                all.component.default=document.getElementById("inputdefault").value;
+                all.component.placeholder=document.getElementById("inputplace").value;
+                break;
+            case "twotextarea":
+                all.component.type = 'textarea';
+                all.component.default=document.getElementById("textdesc").value
+                all.component.placeholder=document.getElementById("textplace").value;
+                break;
+            case "threeselect":
+                all.component.type = 'select';
+                all.component.options = {};
+                var key = [];
+                var value = [];
+                $('#type_select tbody input[name="selectkey"]').each(function (k,v) {
+                    /*all.component.options.push();
+                    all.component.options[key]
+                    //key=$(v).attr('selectkey');
+                    //value=$(v).attr('selectvalue');
+                    all.component.options.push({key:$(v).attr('selectkey'),value:$(v).attr('selectvalue')});*/
+                    console.log($(v).val());
+                });
+               /* $('#type_select tbody input[name="selectvalue"]').each(function (k,v) {
+
+                    console.log($(v).val());
+                });*/
+                all.component.default = document.getElementById("selectdefault").value;
+
+
+                break;
+            case "fourcheckbox":
+                all.component.type = 'textarea';
+                all.component.default=document.getElementById("flexCheckChecked").value
+                all.component.placeholder=document.getElementById("flexCheckDefault").value;
+
+                break;/*
+            case "fiveradio":
+                modaldesc = document.getElementById("modaldesc").value;
+                modaldesc = document.getElementById("modaldesc").value;
+                modaldesc = document.getElementById("modaldesc").value;
+                break;*/
+            default:
+            // code block bu kısmı null seçilmiş olarak yapılabilir
+        }
+        console.log(all);
+       // console.log(all.check_data[0].flexCheckChecked);//checkbox içerisindeki 0. indekstteki degeri alır.
+    }
+
+
     </script>
 
 
