@@ -33,5 +33,8 @@ Route::get('admin/endpointlist',[AdminController::class,'endpointlist'])->name('
 //Header-param vs
 Route::get('admin/endpointstore/param',[AdminController::class,'endpointstore'])->name('param');
 
+//ajax
+Route::post('admin/endpointstore/getajax',[AdminController::class,'get_ajax_endpoint'])->name('get_ajax_save');
+//Route::post('admin/endpointsave',[AdminController::class,'get_ajax_endpoint'])->name("get_ajax_save");
 
 

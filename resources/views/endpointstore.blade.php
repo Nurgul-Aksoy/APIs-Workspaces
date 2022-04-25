@@ -3,7 +3,7 @@
 
     <h4><i class="fa fa-solid fa-list-ul nav-icon"> Endpoint Ekle</i></h4><br>
     <div style="float: right; margin-top:-55px; margin-right:13px;">
-        <button type="submit" class="btn btn-primary btn-sm">Save</button>
+        <button type="submit" class="btn btn-primary btn-sm" id="save_endpoint">Save</button>
     </div>
     <section class="content">
         <div class="container-fluid">
@@ -17,33 +17,32 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('param') }}" method="post">
-                            @csrf
+                        <form>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Url:</label>
-                                    <input type="url" class="form-control" name="url">
+                                    <input type="url" class="form-control" name="url" id="form_url">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Type:</label>
                                     <!--<input type="number" class="form-control" name="order" min="0" max="100">-->
-                                    <select name="endpoint" id="endpoint" class="form-control">
+                                    <select name="endpoint" id="form_type" class="form-control">
                                         <option value=""></option>
-                                        <option value="">GET</option>
-                                        <option value="">POST</option>
-                                        <option value="">PUT</option>
-                                        <option value="">PATCH</option>
-                                        <option value="">DELETE</option>
+                                        <option value="get" id="get_type">GET</option>
+                                        <option value="post" id="post_type">POST</option>
+                                        <option value="put" id="put_type">PUT</option>
+                                        <option value="patch" id="patch_type">PATCH</option>
+                                        <option value="delete" id="delete_type">DELETE</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Name:</label>
-                                    <input type="text" class="form-control" name="name" min="0" max="100">
+                                    <input type="text" class="form-control" name="name" min="0" max="100" id="form_name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Description:</label>
                                     <div class="input-group">
-                                        <textarea  name="description" cols="64" rows="2" style="border: 1px solid #ced4da; border-radius: 5px; "></textarea>
+                                        <textarea  name="description" cols="64" rows="2" style="border: 1px solid #ced4da; border-radius: 5px; " id="form_description"> </textarea>
                                     </div>
                                 </div>
 
@@ -87,9 +86,9 @@
                                             <tbody>
                                             <tr>
                                                 <td style="width:5px;">0.</td>
-                                                <td><input type="text" name="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                                <td><input type="text" name="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                                <td><textarea name="" name="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
+                                                <td><input type="text" name="key"  style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
+                                                <td><input type="text" name="value"  style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
+                                                <td><textarea  name="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
                                                 <td><button type="button" id="remove-row" class="btn btn-block btn-default btn-xs disabled" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
                                             </tr>
 
@@ -119,7 +118,7 @@
                                                 <td style="width:5px;">0.</td>
                                                 <td><input type="text" name="key_param"  style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
                                                 <td><input type="text" name="value_param"  style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>
-                                                <td><textarea name="" name="description_param" cols="19" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
+                                                <td><textarea name="description_param" cols="19" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>
                                                 <td><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_param" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
                                             </tr>
                                             </tbody>
@@ -147,7 +146,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0" style="padding:0px;">
-                            <table class="table table-hover text-nowrap table-bordered field">
+                            <table class="table table-hover text-nowrap table-bordered field" id="areastable">
                                 <!--Field table -->
                                         <thead>
                                         <tr><th style="width:10px;">Name</th>
@@ -159,11 +158,11 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td id="name" style="width:25%;"></td>
+                                           <!--td id="name" style="width:25%;"></td>
                                             <td style="width:20%;"></td>
                                             <td style="width:30%;"></td>
                                             <td style="width:25%;"></td>
-                                            <td style="width: 15%"><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_field" style="width: 25px; margin:5px 5px 5px 20px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                                            <td style="width: 15%"><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_field" style="width: 25px; margin:5px 5px 5px 20px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>-->
                                         </tr>
                                         </tbody>
                                     </table>
@@ -192,7 +191,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('param') }}" method="post" id="modalone">
+                    <form id="modalone">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -248,7 +247,7 @@
                     '<td  style="width:5px;"></td>'+
                     '<td><input type="text" name="key" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
                     '<td><input type="text"  name="value" style="width: 80px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
-                    '<td><textarea name="" name="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
+                    '<td><textarea name="description" cols="20" rows="1" style="border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></textarea></td>'+
                     '<td><button type="button" id="'+ i +'" class="btn btn-block btn-default btn-xs active remove_row" style="width: 25px; margin: 5px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>'+
                     '</tr>'
                 );
@@ -365,7 +364,7 @@
                 }
                 else{
                     $(".contents").html("<div class='card-body' style='padding:0px;'>" +
-                        " <table class='table table-bordered modalradio'>" +
+                        " <table class='table table-bordered modalradio' id='type_radio'>" +
                         " <thead> <button type='button' id='add-row-radio' class='btn btn-block btn-default btn-xs' style='width: 25px; margin: 6px; float:right;  margin-right:24px;'><i class='fa fa-plus' aria-hidden='true'></i></button>" +
                         " <tr><th style='width:5px;'>#</th>" +
                         " <th style='width:10px;'>Key</th>" +
@@ -378,7 +377,7 @@
                         "<td><input type='text' name='radiovalue' style='width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'></td> "+
                         "<td><button type='button' class='btn btn-block btn-default btn-xs active remove_row' style='width: 25px; margin: 5px; margin-left:15px;'><i class='fa fa-times' aria-hidden='true'></i></button></td></tr> </tbody> </table> </div> </div><br>" +
                         "<label for='default' style='margin-right:15px;'>Default</label>"+
-                        "<input type='number' name='radiodefault' min='0' max='100' style='width: 375px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'>");
+                        "<input type='number' id='radiodefault' name='radiodefault' min='0' max='100' style='width: 375px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)'>");
                 }
                 //modal selectbox select option
                 var i=1;
@@ -414,8 +413,8 @@
                     $(".modalradio").append(
                         '<tr id="row'+ i +'" class="row_radio_modal">'+
                         '<td style="width:5px;"></td>'+
-                        '<td><input type="text" id="key" style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
-                        '<td><input type="text"  id="value" style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                        '<td><input type="text" name="radiokey" style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
+                        '<td><input type="text"  name="radiovalue" style="width: 120px; border-radius:0.25rem; border:1px solid rgba(0, 0, 0, 0.125)"></td>'+
                         '<td><button type="button" id="'+ i +'" class="btn btn-block btn-default btn-xs active remove_row_radio" style="width: 25px; margin: 5px; margin-left:15px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>'+
                         '</tr>'
                     );
@@ -447,13 +446,8 @@
             $('.contents').show();
        });
     </script>
-    <!--each dongu-->
     <script>
-    $("li").each(function (index){
-        console.log(index+":"+$(this).text());
-    });
-    </script>
-    <script>
+      var all_list = [];
     //modaldan gelen degerleri alıp array icerisine ekleme
     function getValueInput() {
 
@@ -470,57 +464,143 @@
         switch(types) {
             case "oneinput":
                 all.component.type = 'input';
-                all.component.default=document.getElementById("inputdefault").value;
-                all.component.placeholder=document.getElementById("inputplace").value;
+                all.component.default = document.getElementById("inputdefault").value;
+                all.component.placeholder = document.getElementById("inputplace").value;
                 break;
             case "twotextarea":
                 all.component.type = 'textarea';
-                all.component.default=document.getElementById("textdesc").value
-                all.component.placeholder=document.getElementById("textplace").value;
+                all.component.default = document.getElementById("textdesc").value
+                all.component.placeholder = document.getElementById("textplace").value;
                 break;
             case "threeselect":
                 all.component.type = 'select';
-                all.component.options = {};
+                all.component.options = [];
                 var key = [];
                 var value = [];
-                $('#type_select tbody input[name="selectkey"]').each(function (k,v) {
-                    /*all.component.options.push();
-                    all.component.options[key]
-                    //key=$(v).attr('selectkey');
-                    //value=$(v).attr('selectvalue');
-                    all.component.options.push({key:$(v).attr('selectkey'),value:$(v).attr('selectvalue')});*/
-                    console.log($(v).val());
+                $('#type_select tbody input[name="selectkey"]').each(function (k, v) {
+                    key.push($(v).val());
                 });
-               /* $('#type_select tbody input[name="selectvalue"]').each(function (k,v) {
-
-                    console.log($(v).val());
-                });*/
+                $('#type_select tbody input[name="selectvalue"]').each(function (k, v) {
+                    value.push($(v).val());
+                });
+                Object.assign.apply({}, key.map( (v, i) =>all.component.options.push({[v]: value[i]})) );
                 all.component.default = document.getElementById("selectdefault").value;
-
-
                 break;
             case "fourcheckbox":
-                all.component.type = 'textarea';
+                all.component.type = 'checkbox';
                 all.component.default=document.getElementById("flexCheckChecked").value
                 all.component.placeholder=document.getElementById("flexCheckDefault").value;
-
-                break;/*
+                break;
             case "fiveradio":
-                modaldesc = document.getElementById("modaldesc").value;
-                modaldesc = document.getElementById("modaldesc").value;
-                modaldesc = document.getElementById("modaldesc").value;
-                break;*/
+                all.component.type = 'radio';
+                all.component.options_radio = [];
+                var key_radio = [];
+                var value_radio = [];
+                $('#type_radio tbody input[name="radiokey"]').each(function (k, v) {
+                    key_radio.push($(v).val());
+                });
+                $('#type_radio tbody input[name="radiovalue"]').each(function (k, v) {
+                    value_radio.push($(v).val());
+                });
+                Object.assign.apply({}, key_radio.map( (v, i) =>all.component.options_radio.push({[v]: value_radio[i]})) );
+                all.component.default = document.getElementById("radiodefault").value;
+                break;
             default:
             // code block bu kısmı null seçilmiş olarak yapılabilir
         }
-        console.log(all);
+        all_list.push(all);
+        render();
        // console.log(all.check_data[0].flexCheckChecked);//checkbox içerisindeki 0. indekstteki degeri alır.
     }
+    //tablo içerisine modaldan girilen değerin kaydedilmesi
+    function render() {
+        $.each(all_list, function (key, value) {
+            $('#areastable').html("");
+            $('#areastable').append('<tr><td style="width:25%">' + value.key + '</td><td style="width:20%">' + value.name + '</td><td style="width:30%">' + value.description + '</td><td style="width:25%">' + value.component.type + '</td><td style="width:15%"><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_fields" style="width: 25px; margin:5px 5px 5px 20px;"><i class="fa fa-times" aria-hidden="true"></i></button></td></tr>');
+        });
+    }
+    </script>
+    <script>
 
+            //ajax ile verileri göndermek
+            $(document).ready(function () {
+                $("#save_endpoint").click(function (e) {
+
+                    //Header ve Param
+                    var key_header = [];
+                    var value_header = [];
+                    var description_header = [];
+                    var key_param = [];
+                    var value_param = [];
+                    var description_param = [];
+
+                        $('.header tbody input[name="key"] ').each(function (k, v) {
+                            key_header.push($(v).val());
+                        });
+
+                        $('.header tbody input[name="value"]').each(function (k, v) {
+                            value_header.push($(v).val());
+                        });
+                        $('.header tbody textarea').each(function (k, v) {
+                            description_header.push($(v).val());
+                        });
+
+                        $('.param tbody input[name="key_param"]').each(function (k, v) {
+                            key_param.push($(v).val());
+                        });
+
+                        $('.param tbody input[name="value_param"]').each(function (k, v) {
+                            value_param.push($(v).val());
+                        });
+                        $('.param tbody textarea[name="description_param"]').each(function (k, v) {
+                            description_param.push($(v).val());
+                        });
+
+                        var result_header = key_header.map((v, i) => ({
+                            key: key_header[i],
+                            value: value_header[i],
+                            description: description_header[i]
+                        }));
+                        var result_param = key_param.map((v, i) => ({
+                            key: key_param[i],
+                            value: value_param[i],
+                            description: description_param[i]
+                        }));
+
+                        //Endpoint Tüm Veriler
+                        const endpoint =
+                            {
+                                name: $("#form_name").val(),
+                                url: $("#form_url").val(),
+                                type: $("#form_type").val(),
+                                description: $("#form_description").val(),
+                                header_endpoint: result_header,
+                                parameters: result_param,
+                                areas: all_list
+                            };
+
+
+                        $.ajax({
+                        url: '{{ route ('get_ajax_save') }}',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            endpoint: endpoint,
+                            _token: $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (data) {
+                            //alert(data.success);
+                            console.log(data);
+                        },
+                        error: function (error) {
+                            console.log(error);
+
+                        }
+                    });
+                });
+            });
 
     </script>
-
-
 @endsection
     <!-- /.content -->
 @endsection

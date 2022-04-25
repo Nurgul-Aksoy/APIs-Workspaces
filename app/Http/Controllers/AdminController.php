@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Endpoint;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -111,4 +112,25 @@ class AdminController extends Controller
         return view('param');
     }
 
+    public function get_ajax_endpoint(Request $request){
+        //dd($request->endpoint);
+        Endpoint::create($request->endpoint);
+        //dd($request->get('endpoint'));
+
+         // $post = new Endpoint();
+         //$data =$request->endpoint;
+          //$post->save();
+        // Endpoint::update($data, ['upsert' => true]);
+       // $post::update($data, ['upsert' => true]);
+
+         //$post->create($request->endpoint);
+        //Endpoint::create($request->endpoint);
+          //$insert[]= ['data'=>$request->endpoint];
+            //Endpoint::create($insert);
+        //$post->save();
+        //$post->update($request->endpoint, ['upsert' => true]);
+         //return redirect()->route('endpointstore');
+
+    }
 }
+
