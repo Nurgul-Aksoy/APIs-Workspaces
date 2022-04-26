@@ -14,13 +14,12 @@ class Endpoint extends Model
         'name',
         'url',
         'type',
+        'category',
         'description',
         'header_endpoint',
         'parameters',
         'areas'
     ];
-
-
 
     use HasFactory;
 

@@ -28,13 +28,12 @@ Route::delete('{id}',[AdminController::class,'destroy'])->name('destroy');
 
 //Endpoint
 Route::get('admin/endpointstore',[AdminController::class,'endpointstore'])->name('endpointstore');
-Route::get('admin/endpointlist',[AdminController::class,'endpointlist'])->name('endpointlist');
-
-//Header-param vs
-Route::get('admin/endpointstore/param',[AdminController::class,'endpointstore'])->name('param');
+//Route::get('admin/endpointlist',[AdminController::class,'endpointlist'])->name('endpointlist');
 
 //ajax
 Route::post('admin/endpointstore/getajax',[AdminController::class,'get_ajax_endpoint'])->name('get_ajax_save');
 //Route::post('admin/endpointsave',[AdminController::class,'get_ajax_endpoint'])->name("get_ajax_save");
-
+//endpointlist
+Route::get('admin/showendpoints',[AdminController::class,'endpointshow'])->name('endpointshow');
+//Route::get("admin/katnames",[AdminController::class,'categorynames']);
 

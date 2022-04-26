@@ -36,6 +36,16 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for="exampleInputPassword1">Category:</label>
+                                    <!--<input type="number" class="form-control" name="order" min="0" max="100">-->
+                                    <select name="category_endpoint" id="form_category" class="form-control">
+                                        @foreach($cat_names as $n)
+                                            <option value="{{$n->id}}">{{$n->name}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputPassword1">Name:</label>
                                     <input type="text" class="form-control" name="name" min="0" max="100" id="form_name">
                                 </div>
@@ -158,11 +168,6 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                           <!--td id="name" style="width:25%;"></td>
-                                            <td style="width:20%;"></td>
-                                            <td style="width:30%;"></td>
-                                            <td style="width:25%;"></td>
-                                            <td style="width: 15%"><button type="button" id="remove-row-param" class="btn btn-block btn-default btn-xs disabled remove_row_field" style="width: 25px; margin:5px 5px 5px 20px;"><i class="fa fa-times" aria-hidden="true"></i></button></td>-->
                                         </tr>
                                         </tbody>
                                     </table>
@@ -520,12 +525,13 @@
         });
     }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script>
 
             //ajax ile verileri göndermek
             $(document).ready(function () {
                 $("#save_endpoint").click(function (e) {
-
+                     Swal.fire( 'Kayıt işlemi gerçekleştirildi!',  'Veriler başarılı şekilde veritabanına kaydedildi.',  'success');
                     //Header ve Param
                     var key_header = [];
                     var value_header = [];
@@ -573,13 +579,12 @@
                                 name: $("#form_name").val(),
                                 url: $("#form_url").val(),
                                 type: $("#form_type").val(),
+                                category: $("#form_category").val(),
                                 description: $("#form_description").val(),
                                 header_endpoint: result_header,
                                 parameters: result_param,
                                 areas: all_list
                             };
-
-
                         $.ajax({
                         url: '{{ route ('get_ajax_save') }}',
                         type: 'POST',
@@ -590,7 +595,9 @@
                         },
                         success: function (data) {
                             //alert(data.success);
-                            console.log(data);
+                           //Swal.fire('Kayıt işlemi gerçekleştirildi!',  'Veriler başarılı şekilde veritabanına kaydedildi.',  'success');
+
+                           // console.log(data);
                         },
                         error: function (error) {
                             console.log(error);
@@ -601,6 +608,7 @@
             });
 
     </script>
+
 @endsection
     <!-- /.content -->
 @endsection
