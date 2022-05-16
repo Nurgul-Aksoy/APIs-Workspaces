@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\TrainController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/user',[AdminController::class,'user']);//veritabanına kullanıcı kaydının dönmei
 
@@ -36,4 +37,11 @@ Route::post('admin/endpointstore/getajax',[AdminController::class,'get_ajax_endp
 //endpointlist
 Route::get('admin/showendpoints',[AdminController::class,'endpointshow'])->name('endpointshow');
 //Route::get("admin/katnames",[AdminController::class,'categorynames']);
+
+//fronted user
+Route::get('/',[UserController::class,'user'])->name('userpage');
+
+//User show data-servis
+Route::get('/service/{id}',[UserController::class,'user']);
+
 

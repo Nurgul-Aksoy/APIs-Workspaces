@@ -133,8 +133,15 @@ class AdminController extends Controller
     public function endpointshow()
     {
         $endpoints = Endpoint::all();
-        return view('endpointlist', compact('endpoints'));
+        $category = Category::all()->toArray();
+        $category_names = [];
+       /* foreach ($category as $c) {
+            $category_names[(string) $c->_id] = $c->name;
+        }*/
+        $category_names = array_column($category, 'name', '_id');
+        return view('endpointlist', compact('endpoints', 'category_names'));
     }
+
 
 }
 

@@ -42,7 +42,7 @@
                                 <td style="width: 5%">{{$data->url}}</td>
                                 <td style="width: 5%">{{$data->name}}</td>
                                 <td style="width: 5%">{{$data->type}}</td>
-                                <td style="width: 5%">{{$data->category}}</td>
+                                <td style="width: 5%">{{$category_names[$data->category]}}</td>
                                 <td style="width: 5%">{{$data->description}}</td>
                                 <td><a href="">Düzenle | Sil</a></td>
 

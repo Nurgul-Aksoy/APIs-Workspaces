@@ -40,7 +40,7 @@
                                     <!--<input type="number" class="form-control" name="order" min="0" max="100">-->
                                     <select name="category_endpoint" id="form_category" class="form-control">
                                         @foreach($cat_names as $n)
-                                            <option value="{{$n->id}}">{{$n->name}}</option>
+                                            <option value="{{(string)$n->_id}}">{{$n->name}}</option>
                                         @endforeach
                                     </select>
 
