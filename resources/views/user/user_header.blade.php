@@ -1,6 +1,11 @@
 <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
-    <!-- Left navbar links -->
 
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-solid fa-bars"></i></a>
+        </li>
+    </ul>
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">

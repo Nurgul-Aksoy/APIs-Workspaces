@@ -11,7 +11,7 @@
     <!--Mix edilmiş css dosyası-->
     <link rel="stylesheet" href="{{ env('APP_URL') }}/css/app.css">
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" style="font-size: 12px;">
 <div class="wrapper">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
