@@ -216,11 +216,11 @@
                             if(($(v).data('name')).is(":checked")) {
                                  nurgul[$(v).data('id')] = $(v).val();}*/
                             if(($(v).is(":checked"))) {
-                                areaOfBody[$(v).data('id')] = $(v).val();}
+                                areaOfBody[$(v).attr("name")] = $(v).val();
+                            }
                             break;
-
-
                     }});
+                console.log(areaOfBody);
                /* $('.request-body .component_second ').each(function (k, v) {
                     switch ($(v).data('type')) {
                         case "radio":
@@ -232,7 +232,7 @@
                     console.log($(v).val());
 
                 });*/
-                console.log(areaOfBody);
+                /*
                 var body_input= $(".bodyinput").val(); //input value
                 var body_in=$(".bodyinput").attr('id'); // input id
                 var body_textarea= $("#textarea_areas").val();
@@ -243,7 +243,7 @@
                 }).get();
                 var body_radio=$("input[type='radio'][name='userRadio']:checked").attr('id'); //secilen dgerin id'sini geliyor
                 var body_radio=$("input[type='radio'][name='userRadio']:checked").val(); //secilend degerin value'sunu alma
-
+*/
                 //Param key value değerlerininin alınması
                 var key_request = [];
                 var value_request = [];
