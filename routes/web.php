@@ -43,7 +43,8 @@ Route::get('/',[UserController::class,'user'])->name('userpage');
 
 //User show data-servis
 Route::get('/service/{id}',[UserController::class,'user']);
-
-Route::post('/api', function (\Illuminate\Http\Request $request) {
-    dd($request->request);
-});
+/*
+Route::post('/post', function (\Illuminate\Http\Request $request) {
+    dd($request);
+});*/
+Route::post('/post',[UserController::class,'request'])->name('request');

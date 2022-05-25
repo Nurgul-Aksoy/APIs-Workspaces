@@ -4,6 +4,8 @@
 
     <!--Header-Param-Endpoint-->
     <button type="button" class="btn btn-primary btn-sm" style="position:absolute; top:0px; right:0px;" onclick = "sendRequest()">Send</button>
+    <div class="ajaxSuccess" style="position:absolute; top:40px; right:0px;"></div>
+
     <hr style=" border:none;border-left: 1px solid black;height: 150vh;width: 1px; margin-top:-15px;">
 
     <div class="col-12 col-sm-6" style=" position:absolute; top:0px; left:0px;">
@@ -204,7 +206,6 @@
                             areaOfBody[$(v).data('id')] = $(v).val();
                             break;
                         case "select":
-                          // console.log( $('.request-body .component option:checked').text());
                             areaOfBody[$(v).data('id')] = $('.request-body .component option:checked').text();
                             break;
                         case "checkbox":
@@ -212,38 +213,14 @@
                                 areaOfBody[$(v).data('id')] = $(v).val();
                             }
                             break;
-                        default:/*
-                            if(($(v).data('name')).is(":checked")) {
-                                 nurgul[$(v).data('id')] = $(v).val();}*/
+                        default:
                             if(($(v).is(":checked"))) {
                                 areaOfBody[$(v).attr("name")] = $(v).val();
                             }
                             break;
                     }});
-                console.log(areaOfBody);
-               /* $('.request-body .component_second ').each(function (k, v) {
-                    switch ($(v).data('type')) {
-                        case "radio":
-                            if(($(v).is(":checked"))) {
-                            nurgul[$(v).data('id')] = $(v).val();}
-                            break;}
-                });*/
-              /*  $('.request-body input[type="checkbox"]:checked').each(function (k,v){
-                    console.log($(v).val());
+              //  console.log(areaOfBody);
 
-                });*/
-                /*
-                var body_input= $(".bodyinput").val(); //input value
-                var body_in=$(".bodyinput").attr('id'); // input id
-                var body_textarea= $("#textarea_areas").val();
-              //  var body_select = document.getElementById("select_areas").value; //selectte secilen value degerini alıyor
-                var body_select= $("#select_areas option:selected").text();//sselectte secilen text degerini alıyor
-                var body_check= $('input:checkbox.form-check-input').filter(':checked').map(function () { //checkbox id degeri alma
-                    return this.id;
-                }).get();
-                var body_radio=$("input[type='radio'][name='userRadio']:checked").attr('id'); //secilen dgerin id'sini geliyor
-                var body_radio=$("input[type='radio'][name='userRadio']:checked").val(); //secilend degerin value'sunu alma
-*/
                 //Param key value değerlerininin alınması
                 var key_request = [];
                 var value_request = [];
@@ -289,28 +266,21 @@
                 headerJson['Access-Control-Allow-Origin'] = "*";
 
                  $.ajax({
-                     url:ajaxUrl, //? Bu sekilde yazılı oldugunda parametreler payloadda gozukuyor ve  header verisi yok gozukmuyor
+                     url: '/post',
                      type: 'POST',
-                     dataType: 'json', //sadece json yazınca hata veriyor
+                     dataType:'json',
                      crossDomain: true ,
-                    // headers: headerJson,
-                    data: {
-                         //data yapısında verilerin nasıl gönderilemesini istersin?
-                        //json çıktısı succes içerisinde nasıl olmasını istersin?
-                        body: body_input,
-                        headers: headerJson,
-                        checkbox: body_check,
-                        radio: body_radio
-
-                    },
-                    success: function (data) {
-
+                     data: {
+                        url:ajaxUrl,
+                        body: areaOfBody,
+                        headers: headerJson
+                     },
+                     success: function (data) {
                          console.log(data);
-                    },
-                    error: function (error) {
+                     },
+                     error: function (error) {
                         console.log(error);
-
-                    }
+                     }
                 });
 
                 }

@@ -41,6 +41,15 @@ class UserController extends Controller
        // dd($data_model);
         return view('user_dashboard',compact('data_model'));
     }*/
+    public function request(Request $request)
+    {
+        dd($request);
+        if($request->ajax()){
+            return "AJAX";
+        }
+        return "HTTP";
+
+    }
 
 
 
